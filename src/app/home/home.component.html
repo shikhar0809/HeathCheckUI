@@ -1,0 +1,74 @@
+<div class="home-layout">
+  <div
+    class="sidebar-container"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="left"
+    fxLayoutGap="20px"
+    fxLayoutGap.xs="0"
+  >
+    <div>
+      <app-sidebar></app-sidebar>
+      <div class="viewRequestResponse">
+        <button mat-raised-button color="primary" (click)="openDialog()">View Request Repsonse</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-container">
+    <div
+      class="jsonMsg-container"
+      fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="left"
+      fxLayoutGap="20px"
+      fxLayoutGap.xs="0"
+    >
+      <div>
+        <div>
+          <h3 style="font-weight: bold;">Service Input</h3>
+          <mat-form-field style="width: 33em;">
+            <textarea
+              matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="30"
+              cdkAutosizeMaxRows="50"
+              class="inputMessage"
+              type="text"
+              placeholder="Json Request"
+              #jsonmsg
+              class="json-format"
+            ></textarea>
+          </mat-form-field>
+          <div>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              (click)="onJsonRequest(jsonmsg.value)"
+              [disabled]="!true"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="response-container"
+      fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="right"
+      fxLayoutGap="20px"
+      fxLayoutGap.xs="0"
+    >
+      <div class="repsonse">
+        <h3 style="font-weight: bold;">Proto Response</h3>
+        
+      <div *ngFor="let rslt of result">
+          {{rslt | json}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

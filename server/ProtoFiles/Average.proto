@@ -1,0 +1,16 @@
+syntax="proto3";
+package grpc.averagecomputation.v1;
+option java_multiple_files=true;
+option java_package="grpc.averagecomputation.v1";
+
+message averageRequest {
+    int32 num=1;
+}
+message averageResponse {
+    double result=1;
+}
+
+// Client Streaming RPC Service
+service averageService {
+    rpc computeAverage(stream averageRequest) returns (averageResponse) {};
+}

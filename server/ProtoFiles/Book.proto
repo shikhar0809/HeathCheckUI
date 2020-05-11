@@ -1,0 +1,17 @@
+syntax="proto3";
+package grpc.book.v1;
+option java_multiple_files = true;
+option java_outer_classname = "BookProto";
+option java_package="grpc.book.v1";
+message getBookByIdRequest {
+    int32 id=1;
+}
+message getBookByIdResponse {
+    int32 id=1;
+    string name=2;
+    string description=3;
+}
+// Unary RPC Service
+service bookService {
+    rpc getBookById(getBookByIdRequest) returns (getBookByIdResponse) {};
+}

@@ -1,0 +1,37 @@
+<div class="uploadContainer">
+  <div>
+    <label class="lb">Upload Proto File</label>
+    <br />
+    <br />
+    <input type="file" (change)="fileChanged($event)" />
+  </div>
+  <br />
+
+  <button type="button" mat-raised-button color="primary" (click)="uploadDocument()">
+    Upload File
+  </button>
+  <br />
+  <br />
+
+  <div class="services" *ngIf="fileUploaded">
+    <h4 style="font-size: large; font-weight: bold;">Services Present</h4>
+    <div>
+      <div
+        *ngFor="let service of serviceTypeNames | keyvalue"
+        (click)="onSelectService(service.key, service.value)"
+      >
+        <br/>
+        <div *ngIf="servicePresent">
+        <button mat-raised-button color="warn">{{ service.key }} ({{ service.value }})</button>
+        </div>
+        <div *ngIf="!servicePresent">
+          <button mat-raised-button disabled>{{ service.key }} ({{ service.value }})</button>
+          </div>
+    </div>
+    </div>
+    <br/>
+    <div class="viewProto">
+      <button mat-raised-button color="primary" (click)="openDialog()">View Proto</button>
+    </div>
+  </div>
+</div>
