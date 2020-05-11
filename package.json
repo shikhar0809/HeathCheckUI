@@ -26,7 +26,7 @@
     "@angular/router": "6.1.0",
     "ag-grid-angular": "^19.0.0",
     "ag-grid-community": "^19.0.0",
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "concurrently": "^5.2.0",
     "core-js": "^2.5.4",
     "grpc": "1.24.2",
